@@ -992,3 +992,66 @@ footer {
 .video-girado {
   transform: rotate(180deg);
 }
+
+/* HERO IMAGE */
+.hero-image-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image-wrap::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+/* CTA IMAGE */
+.cta-section {
+  text-align: left;
+}
+
+.cta-section .row {
+  text-align: left;
+}
+
+.cta-image-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-image-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cta-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+@media (max-width: 991px) {
+  .cta-section,
+  .cta-section .row {
+    text-align: center;
+  }
+}
