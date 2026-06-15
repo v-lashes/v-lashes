@@ -1006,6 +1006,8 @@ footer {
   left: -20px;
   width: 100%;
   height: 100%;
+  border: 1px solid var(--pink-neon);
+  box-shadow: 0 0 30px rgba(255, 110, 180, 0.25);
   z-index: -1;
 }
 
@@ -1015,6 +1017,7 @@ footer {
   object-fit: cover;
   display: block;
   filter: grayscale(15%) contrast(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* CTA IMAGE */
@@ -1038,6 +1041,8 @@ footer {
   right: -20px;
   width: 100%;
   height: 100%;
+  border: 1px solid var(--pink-neon);
+  box-shadow: 0 0 30px rgba(255, 110, 180, 0.25);
   z-index: -1;
 }
 
@@ -1047,6 +1052,7 @@ footer {
   object-fit: cover;
   display: block;
   filter: grayscale(15%) contrast(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 991px) {
@@ -1054,4 +1060,366 @@ footer {
   .cta-section .row {
     text-align: center;
   }
+}
+
+/* ===================== CATÁLOGO ===================== */
+
+/* Hero pequeño del catálogo */
+.catalog-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.catalog-hero .hero-tag {
+  display: inline-block;
+}
+
+.catalog-hero .section-title {
+  margin-top: 16px;
+}
+
+.catalog-hero p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--white-muted);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  max-width: 600px;
+  margin: 24px auto 0;
+  line-height: 1.8;
+}
+
+/* Paneles parallax alternados */
+.catalog-panel {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 110, 180, 0.08);
+  padding: 80px 0;
+}
+
+.catalog-panel-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.catalog-panel-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.78);
+}
+
+/* Marco de la foto del set */
+.catalog-img-frame {
+  position: relative;
+  z-index: 2;
+}
+
+.catalog-img-frame::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--pink-neon);
+  box-shadow: 0 0 30px rgba(255, 110, 180, 0.25);
+  z-index: -1;
+}
+
+.catalog-panel.reverse .catalog-img-frame::before {
+  left: auto;
+  right: -16px;
+}
+
+.catalog-img-frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(1.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Tarjeta de contenido sobre el fondo parallax */
+.catalog-panel-content {
+  position: relative;
+  z-index: 2;
+  padding: 44px;
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 110, 180, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.catalog-panel-content .service-num {
+  color: rgba(255, 110, 180, 0.25);
+}
+
+.catalog-panel-content .service-desc {
+  max-width: 460px;
+}
+
+.catalog-panel-content .service-price {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 991px) {
+  .catalog-panel {
+    min-height: auto;
+  }
+
+  .catalog-img-frame {
+    margin-bottom: 32px;
+  }
+
+  .catalog-panel-content {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-panel-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* ===================== PORTADA EDITORIAL DEL CATÁLOGO ===================== */
+.magazine-cover {
+  position: relative;
+  background: var(--black);
+}
+
+.magazine-back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 1001;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--pink-neon);
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--pink-neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 110, 180, 0.2);
+}
+
+.magazine-back-btn:hover {
+  background: var(--pink-neon);
+  color: var(--black);
+  box-shadow: 0 0 25px rgba(255, 110, 180, 0.5);
+}
+
+/* Panel superior con borde inferior rasgado */
+.magazine-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  overflow: hidden;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 96.67% 99.0%, 93.33% 100%, 90.0% 97.78%, 86.67% 99.02%, 83.33% 98.36%, 80.0% 100%, 76.67% 97.92%, 73.33% 99.62%, 70.0% 99.23%, 66.67% 100%, 63.33% 97.57%, 60.0% 100%, 56.67% 98.96%, 53.33% 99.33%, 50.0% 98.86%, 46.67% 100%, 43.33% 98.03%, 40.0% 98.86%, 36.67% 98.76%, 33.33% 99.32%, 30.0% 97.62%, 26.67% 99.81%, 23.33% 97.76%, 20.0% 100%, 16.67% 99.17%, 13.33% 100%, 10.0% 98.09%, 6.67% 99.46%, 3.33% 97.61%, 0.0% 100%);
+}
+
+.magazine-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(25%) contrast(1.1) brightness(0.85);
+}
+
+.magazine-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.15) 0%, rgba(10, 10, 10, 0.75) 100%);
+}
+
+.magazine-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 100px 6vw 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.magazine-title-block {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: 6px;
+  color: var(--white);
+}
+
+.magazine-title-block span {
+  display: block;
+}
+
+.magazine-title-block .neon {
+  color: var(--pink-neon);
+  text-shadow: 0 0 30px var(--pink-neon), 0 0 60px rgba(255, 61, 154, 0.4);
+}
+
+.magazine-hero-desc {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  color: var(--white-muted);
+  max-width: 360px;
+  text-align: right;
+  line-height: 1.9;
+}
+
+.magazine-hero-desc::before {
+  content: '✦';
+  display: block;
+  color: var(--pink-neon);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  text-align: right;
+}
+
+/* Panel "Sobre mí" */
+.magazine-sobre {
+  position: relative;
+  background: var(--black-mid);
+  padding: 80px 0 120px;
+  margin-top: -4vh;
+}
+
+.magazine-sobre-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 13vw, 10rem);
+  letter-spacing: 4px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 36px;
+}
+
+.magazine-sobre-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--pink-neon);
+  font-size: 0.6em;
+  text-shadow: 0 0 20px rgba(255, 110, 180, 0.5);
+}
+
+.magazine-sobre-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--white-muted);
+  line-height: 2;
+  max-width: 460px;
+}
+
+.magazine-photos {
+  position: relative;
+}
+
+.magazine-photo {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(10%) contrast(1.05) saturate(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.magazine-photo.torn-left {
+  aspect-ratio: 4 / 3;
+  clip-path: polygon(100% 0%, 0% 0.0%, 1.39% 4.17%, 0% 8.33%, 1.86% 12.5%, 0% 16.67%, 0.51% 20.83%, 0% 25.0%, 0.41% 29.17%, 0% 33.33%, 0.89% 37.5%, 1.36% 41.67%, 2.32% 45.83%, 0.63% 50.0%, 2.76% 54.17%, 0.8% 58.33%, 2.7% 62.5%, 0.67% 66.67%, 1.09% 70.83%, 0.41% 75.0%, 1.89% 79.17%, 0.87% 83.33%, 2.2% 87.5%, 0% 91.67%, 1.06% 95.83%, 0% 100.0%, 100% 100%);
+  margin-bottom: 24px;
+}
+
+.magazine-photo.torn-left.second {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 991px) {
+  .magazine-hero-content {
+    padding: 90px 24px 100px;
+  }
+
+  .magazine-hero-desc {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .magazine-hero-desc::before {
+    text-align: left;
+  }
+
+  .magazine-photos {
+    margin-top: 48px;
+  }
+}
+
+/* RECOMENDACIONES */
+.recomendaciones-section {
+  padding: 120px 0;
+  background: var(--black-mid);
+}
+
+.tip-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255, 110, 180, 0.1);
+  padding: 32px 28px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+  border-color: rgba(255, 110, 180, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(255, 61, 154, 0.12);
+}
+
+.tip-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--pink-neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--pink-neon);
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(255, 110, 180, 0.2);
+}
+
+.tip-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tip-desc {
+  font-size: 0.85rem;
+  color: var(--white-muted);
+  line-height: 1.7;
 }
